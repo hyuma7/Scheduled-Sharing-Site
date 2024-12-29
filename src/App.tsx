@@ -36,9 +36,16 @@ function App() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <CalendarIcon className="h-8 w-8 text-indigo-600" />
-              <h1 className="ml-2 text-2xl font-bold text-gray-900">予定共有サイト</h1>
+            <div className="flex flex-col">
+              <div className="flex items-center">
+                <CalendarIcon className="h-8 w-8 text-indigo-600" />
+                <h1 className="ml-2 text-2xl font-bold text-gray-900">予定共有サイト</h1>
+              </div>
+              {process.env.REACT_APP_ENV && (
+                <span className="text-sm text-gray-500 mt-1">
+                  環境: {process.env.REACT_APP_ENV}
+                </span>
+              )}
             </div>
             <button
               onClick={() => setShowForm(!showForm)}
