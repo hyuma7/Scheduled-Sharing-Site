@@ -32,8 +32,8 @@ function App() {
   };
 
   // 環境変数をコンソールに表示
-  console.log('Current Environment:', process.env.REACT_APP_ENV);
-  console.log('Current Environment2:', process.env.REACT_APP_ENV2);
+  console.log('Current Environment:', import.meta.env.REACT_APP_ENV);
+  console.log('Current Environment2:', import.meta.env.REACT_APP_ENV2);
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
