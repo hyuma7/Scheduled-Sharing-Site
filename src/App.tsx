@@ -31,6 +31,10 @@ function App() {
     setShowForm(false);
   };
 
+  // 環境変数をコンソールに表示
+  console.log('Current Environment:', process.env.REACT_APP_ENV);
+  console.log('All Environment Variables:', process.env);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
