@@ -1,12 +1,5 @@
 FROM node:20-slim as builder
 
-# 環境変数を設定するARG命令を追加
-ARG REACT_APP_ENV
-
-# ビルド時に環境変数を設定
-ENV REACT_APP_ENV=$REACT_APP_ENV
-ENV REACT_APP_ENV2=test
-
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
