@@ -32,8 +32,8 @@ function App() {
   };
 
   // 環境変数をコンソールに表示
-  console.log('Current Environment:', import.meta.env.REACT_APP_ENV);
-  console.log('Current Environment2:', import.meta.env.REACT_APP_ENV2);
+  console.log('Current Environment:', import.meta.env.VITE_APP_ENV);
+  console.log('Current Environment2:', import.meta.env.VITE_APP_ENV2);
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
@@ -44,9 +44,9 @@ function App() {
                 <CalendarIcon className="h-8 w-8 text-indigo-600" />
                 <h1 className="ml-2 text-2xl font-bold text-gray-900">予定共有サイト</h1>
               </div>
-              {process.env.REACT_APP_ENV && (
+              {import.meta.env.VITE_APP_ENV && (
                 <span className="text-sm text-gray-500 mt-1">
-                  環境: {process.env.REACT_APP_ENV}
+                  環境: {import.meta.env.VITE_APP_ENV}
                 </span>
               )}
             </div>

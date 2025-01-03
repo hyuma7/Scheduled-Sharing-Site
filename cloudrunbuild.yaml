@@ -1,13 +1,11 @@
 steps:
-  # Build the container image
+  # Build and deploy backend
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/scheduled-sharing-site/backend', './backend']
   
-  # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/scheduled-sharing-site/backend']
   
-  # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -22,5 +20,27 @@ steps:
     - 'managed'
     - '--allow-unauthenticated'
 
+  # Build and deploy frontend
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/scheduled-sharing-site/frontend', '.']
+  
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/scheduled-sharing-site/frontend']
+  
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+    - 'run'
+    - 'deploy'
+    - 'frontend'
+    - '--image'
+    - 'gcr.io/scheduled-sharing-site/frontend'
+    - '--region'
+    - 'asia-northeast1'
+    - '--platform'
+    - 'managed'
+    - '--allow-unauthenticated'
+
 images:
-  - 'gcr.io/scheduled-sharing-site/backend' 
+  - 'gcr.io/scheduled-sharing-site/backend'
+  - 'gcr.io/scheduled-sharing-site/frontend' 
