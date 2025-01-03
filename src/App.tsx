@@ -13,6 +13,7 @@ interface Schedule {
 }
 
 function App() {
+  console.log('Current environment:', import.meta.env.VITE_APP_ENV);
   const [schedules, setSchedules] = useState<Schedule[]>([
     {
       id: 1,
@@ -30,7 +31,6 @@ function App() {
     setSchedules(prev => [...prev, { ...data, id: prev.length + 1 }]);
     setShowForm(false);
   };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
