@@ -13,7 +13,7 @@ interface Schedule {
 }
 
 function App() {
-  console.log('Current environment:', import.meta.env.VITE_APP_ENV);
+  console.log('Current environment:', import.meta.env.SECRET);
   const [schedules, setSchedules] = useState<Schedule[]>([
     {
       id: 1,
