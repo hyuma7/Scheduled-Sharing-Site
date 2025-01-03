@@ -13,7 +13,7 @@ interface Schedule {
 }
 
 function App() {
-  console.log('Current environment:', import.meta.env.SECRET);
+  console.log('Current environment:', import.meta.env.SECRET_TEST);
   const [schedules, setSchedules] = useState<Schedule[]>([
     {
       id: 1,
